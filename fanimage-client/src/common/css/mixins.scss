@@ -1,0 +1,90 @@
+/*
+ *  Mixin contains the default flexbox properties.
+ *
+ * @param $display: (string)        Options < "flex", "inline-flex" >
+ * @param $type: (string)           Options < "row", "column" >
+ * @param $typeReverse: (boolean)   Options < false, true >
+ * @param $justify: (string)        Options < "start", "center", "end", "between", "around", "even" >
+ * @param $align: (string)          Options < "start", "center", "end", "between", "around", "stretch" >
+ * @param $wrap: (string)           Options < "nowrap", "wrap", "reverse" >
+ */
+@mixin flexbox($display: "flex", $type: "row", $typeReverse: false, $justify: "start", $align: "start", $wrap: "noWrap") {
+    @if $display == "flex" {
+        display: flex;
+    } @else if $display == "inline" {
+        display: inline-flex;
+    }
+
+    @if $type == "row" {
+        @if $typeReverse {
+            flex-direction: row-reverse;
+        } @else {
+            flex-direction: row;
+        }
+    } @else {
+        @if $typeReverse {
+            flex-direction: column-reverse;
+        } @else {
+            flex-direction: column;
+        }
+    }
+
+    @if $justify == "start" {
+        justify-content: flex-start;
+    } @else if $justify == "center" {
+        justify-content: center;
+    } @else if $justify == "end" {
+        justify-content: flex-end;
+    } @else if $justify == "between" {
+        justify-content: space-between;
+    } @else if $justify == "around" {
+        justify-content: space-around;
+    } @else if $justify == "even" {
+        justify-content: space-evenly;
+    }
+
+    @if $align == "start" {
+        align-items: flex-start;
+    } @else if $align == "center" {
+        align-items: center;
+    } @else if $align == "end" {
+        align-items: flex-end;
+    } @else if $align == "between" {
+        align-items: space-between;
+    } @else if $align == "around" {
+        align-items: space-around;
+    } @else if $align == "stretch" {
+        align-items: stretch;
+    } @else if $align == "baseline" {
+        align-items: baseline;
+    }
+
+    @if $wrap == "nowrap" {
+        flex-wrap: nowrap;
+    } @else if $wrap == "wrap" {
+        flex-wrap: wrap;
+    } @else if $wrap == "reverse" {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+/*
+ * Sets the theme of the application.
+ */
+ @mixin themify() {
+    @each $theme, $map in $themes {
+        $theme-map: map-get($themes, $theme) !global;
+        .theme--#{$theme} & {
+            @content;
+        }
+    }
+}
+
+/*
+ * Creates illusion of floating component.
+ */
+@mixin float() {
+    -webkit-box-shadow: 3px 5px 11px -1px rgba(43,43,43, 1);
+    -moz-box-shadow: 3px 5px 11px -1px rgba(43,43,43,1);
+    box-shadow: 3px 5px 11px -1px rgba(43,43,43,1);
+}

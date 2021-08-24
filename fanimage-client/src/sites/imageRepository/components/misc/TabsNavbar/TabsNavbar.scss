@@ -1,0 +1,26 @@
+.tabs-navbar {
+    width: 100%;
+    
+    @include flexbox();
+    @include themify() {
+        border-bottom: themed("BorderWidth") themed("BorderStyle") themed("BorderAlternativeColor");
+    }
+
+    &--tab-name {
+        padding: .5rem 3rem;
+        text-transform: uppercase;
+
+        a {
+            font-size: 0.9rem;
+            font-weight: normal;
+            text-decoration: none;
+            letter-spacing: 0;
+        }
+        
+        &-active {
+            @include themify() {
+                border-bottom: 3px themed("BorderStyle") themed("BorderSecondaryColor");
+            }
+        }
+    }
+}

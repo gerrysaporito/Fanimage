@@ -1,0 +1,8 @@
+.user-register-form {
+    @include flexbox($type: "column", $align: "center");
+
+    .user-register-form__inputs{
+        width: 100%;
+        @include flexbox($type: "column", $align: "center");
+    }
+}

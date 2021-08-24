@@ -1,0 +1,140 @@
+.form--card-width {
+    max-width: 600px;
+    width: 100%;
+
+    @include flexbox($justify: "center")
+}
+
+form {
+    // General styles
+    width: 100%;
+    
+    @include flexbox($type: "column", $justify: "center", $align: "center");
+
+    @media (max-width: $MobileBreakpoint) {
+        width: 100%;
+        margin: 0 20px;
+    }
+
+    // HTML tags
+    label {
+        margin: 0;
+        width: 100%;
+        font-size: 0.9rem;
+
+        width: 100%;
+    }
+
+    input, textarea, select {
+        margin: $InputMargin;
+        padding: $InputPadding;
+        border-radius: $InputBorderRadius;
+        width: 100%;
+        font-size: $InputFontSize;
+        min-height: $InputMinHeight;
+
+        @include themify() {
+            background-color: themed("InputPrimaryBackgroundColor");
+            color: themed("InputPrimaryTextColor");
+        }; 
+    }
+
+    input[type="file"] {
+        background-color: rgba(0,0,0,0);
+        @include themify() {
+            color: themed("TextAlternativeColor");
+        }
+    }
+
+    textarea {
+        min-height: 100px;
+    }
+
+    img {
+        width: 90%;
+        min-width: 250px;
+        max-width: 400px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    p {
+        font-size: 0.8rem;
+        margin-bottom: 20px;
+    }
+
+    .file-input-label {
+        width: 100%;
+        height: 100%;
+        text-overflow: ellipsis;
+        cursor: pointer;
+
+        @include flexbox($type: "column", $justify: "center", $align: "center");
+        @include themify() {
+            color: themed("ButtonAlternativeTextColor");
+            background-color: themed("ButtonAlternativeBackgroundColor");
+        };
+
+        &:hover {
+            @include themify() {
+                color: themed("ButtonPrimaryTextColor");
+                background-color: themed("ButtonSecondaryBackgroundColor");
+            };
+        }
+    }
+
+    // Inputs section
+    .form__inputs {
+        width: 100%;
+        padding: 50px 0;
+
+        .form__input {
+            display: block;
+        }
+    }
+
+    // 2 inputs on 1 line
+    .form__double {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: $GridGap;
+
+        .form__double--half {
+            // width: 47.5%;
+            // display: inline-block;
+        }
+    }
+
+
+    // lists
+    .array-box-list {
+        width: 100%;
+        
+        @include flexbox($type: "row", $justify: "even", $align: "center", $wrap: "wrap");
+
+        .array-box {
+            flex: 1 0 auto;
+            display: inline-flex;
+            position: relative;
+            
+            input {
+                flex: 1 0 auto;
+            }
+
+            button {
+                position: absolute;
+                padding: 0 .5rem;
+                margin: 0;
+                min-width: auto;
+                font-size: 1rem;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                color: black;
+            }
+        }    
+    }
+}

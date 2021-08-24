@@ -1,0 +1,22 @@
+.tabs-list {
+    width: 100%;
+    padding-top: $NavHeight;
+
+    @include themify() {
+        border-bottom: 3px solid themed("CardPrimaryBackgroundColor");
+    }; 
+
+    .tabs-list__item {
+        display: inline-block;
+        list-style: none;
+        margin-bottom: -1px;
+        padding: 0.5rem 3rem;
+        cursor: pointer;
+
+        &.tabs-list__item--active {  
+            @include themify() {
+                border-bottom: 3px solid themed("TextSecondaryColor");
+            }; 
+        }
+    }
+}

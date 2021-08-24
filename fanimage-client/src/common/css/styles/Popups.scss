@@ -1,0 +1,46 @@
+.instructional-popup {
+    width: 100%;
+    position: relative;
+
+    @include flexbox($type: "column");
+
+    .instructional-popup--title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+    }
+
+    .instructional-popup--sub-title {
+        font-size: 1rem;
+        padding-bottom: $GridGap;
+
+        @include themify() {
+            color: themed("TextAlternativeColor");
+        }
+    }
+
+    .instructional-popup--content-container {
+        width: 100%;
+        padding-bottom: $GridGap;
+        font-weight: lighter;
+
+        @include flexbox($type: "column", $align: "center");
+        
+        .instructional-popup--content-header {
+            width: 100%;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding-bottom: $GridGap;
+
+            @include themify() {
+                color: themed("TextSecondaryColor");
+            }
+        }
+
+        .instructional-popup--content {
+            width: 100%;
+            font-weight: lighter;
+            font-size: 1rem;
+        }
+    }
+}

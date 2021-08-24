@@ -1,0 +1,51 @@
+.modules-list-item-form {
+    position: relative;
+
+    @include flexbox($type: "column", $justify: "between");
+
+    // Form inputs
+    .modules-list-item-form__container {
+        width: 100%;  
+        padding: 1rem 0;
+
+        @include flexbox($type: "column", $justify: "between");
+
+        .modules-list-item-form--drop-zone-label {
+            font-size: 0.9rem;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .modules-list-item-form--label {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .modules-list-item-form--sub-label {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .modules-list-item-form--drop-zone {
+            width: 100%;
+            height: 150px;
+
+            @include themify() {
+                border: themed("BorderWidth") themed("BorderAlternativeStyle") themed("BorderSecondaryColor");
+            };  
+            
+            .modules-list-item-form--drop-zone-inner-label {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .modules-list-item-form--drop-zone-upload-icon {
+                font-size: 2rem;
+            }
+        }
+
+        .modules-list-item-form--drop-zone-file-name {
+            margin-bottom: 10px;
+        }
+    }    
+}

@@ -1,0 +1,68 @@
+.modules-list-item {
+    width: 100%;
+    font-size: .8rem;
+    font-weight: normal; 
+    letter-spacing: 0;
+    display: grid;
+    grid-template-columns:  1fr;
+    grid-gap: $GridGap;
+
+    @include themify() {
+        color: themed("TextAlternativeColor");
+    }; 
+
+    .modules-list-item--image {
+        width: 100%;
+        height: auto;
+    }
+
+    .modules-list-item__info {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        .modules-list-item__title {
+            flex: 1 0 auto;
+
+            a {
+                font-size: inherit;
+                font-weight: inherit;
+                letter-spacing: inherit;
+
+                @include themify() {
+                    color: themed("ButtonAlternativeTextColor");
+                }; 
+
+                &:hover {
+                    @include themify() {
+                        color: themed("ButtonPrimaryTextColor");
+                    };     
+                }
+            }
+        }
+
+        .modules-list-item__buttons {
+            text-align: right;
+            button {
+                padding: 0 .5rem ;
+                margin: 0;
+
+                @include themify() {
+                    color: themed("TextAlternativeColor");
+                };   
+                
+                &:hover {
+                    @include themify() {
+                        color: themed("ButtonPrimaryTextColor");
+                    };     
+                }
+            }
+        }
+    }
+}
+
+.modules-list-item--border-bottom {
+    width: 100%;
+    @include themify() {
+        border-bottom: themed("BorderWidth") themed("BorderStyle") themed("BorderAlternativeColor");
+    }; 
+}

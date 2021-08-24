@@ -1,0 +1,35 @@
+$PagePaddingTop: calc( #{$NavHeight} / 2 );
+$ViewPort: calc( 100vh - #{$NavHeight} - #{$PagePaddingTop});
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    @include flexbox($type: "column", $align: "center");
+    @include themify() {
+        background-color: themed("SitePrimaryBackgroundColor");
+        color: themed("TextPrimaryColor");
+    };    
+    
+    hr {
+        height: 2;
+        width: 100%;
+        margin: 2rem 0;
+
+        @include themify() {
+            background-color: themed("TextPrimaryColor");
+            color: themed("TextPrimaryColor");
+        };        
+    }
+
+    .content {
+        margin: $NavHeight 0;
+        width: 70%;
+        min-height: $ViewPort;
+        padding-top: $PagePaddingTop;
+
+        @include flexbox($type: "column", $align: "center");
+    }
+}

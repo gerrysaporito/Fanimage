@@ -1,0 +1,84 @@
+.checkpoints {
+    width: 100%;
+    height: 100%;
+    
+    @include flexbox($type: "column", $justify: "start", $align: "center");
+
+    // Content for each checkpoint.
+    .checkpoint-content {
+        width: 100%;
+        height: 100%;
+        
+        @include flexbox($type: "column", $justify: "between", $align: "center");
+    }
+
+    // Checkpoints in progress bar.
+    .checkpoint__list { 
+        overflow-x: scroll;
+        padding-left: 0;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 0.8rem;
+        padding-bottom: 1rem;
+        
+        @include flexbox();
+        @include themify() {
+            border-bottom: 2px solid themed("PrimaryBackgroundColor");
+        }; 
+        
+        // If circle checkpoints are specified.
+        &.checkpoint__list--circle {
+            border-bottom: none;
+
+            .checkpoint__list--item {
+                position: relative;
+                border-radius: 50%;
+
+                &::after {
+                    content: attr(data-content);
+                    position: absolute;
+                    border-radius: 50%;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    transform: translateY(-2rem);
+                    font-weight: bold;
+
+                    @include flexbox($justify: "center", $align: "center");
+                    @include themify() {  
+                        color: themed("TextSecondaryColor");
+                        border: 2px dotted themed("SecondaryColor");
+                    }; 
+
+                }
+
+                &.checkpoint__list--active {
+                    &::after {
+                        @include themify() {  
+                            color: themed("TextPrimaryColor");
+                            background-color: themed("SecondaryColor");
+                            border: 2px solid themed("SecondaryColor");
+                        }; 
+                    }    
+                }
+            }
+        }
+
+        // Each checkpoint (li).
+        .checkpoint__list--item {
+            flex: 1 0 auto;
+            list-style: none;
+            padding: 3rem 1.5rem 0 1.5rem;
+            cursor: pointer;
+
+            @include flexbox($justify: "center", $align: "center");
+        }
+        
+        // If checkpoint is selected.
+        .checkpoint__list--active {
+            // border: solid #ccc;
+            // border-width: 1px 1px 0 1px;
+        }   
+    
+    }
+}

@@ -1,0 +1,56 @@
+.display-file {
+    width: 100%;
+    height: 100%;
+
+    @include flexbox($type: "column", $justify: "center", $align: "center");
+
+    .display-file__header {
+        width: 100%;
+        margin: 3rem 0 2rem 0;
+        padding: 1rem 0;
+        
+        @include flexbox($type: "row", $justify: "between", $align: "baseline");
+        @include themify(){
+            border-bottom: themed("BorderWidth") themed("BorderStyle") themed("BorderAlternativeColor");
+        }
+
+        .back-btn {
+            letter-spacing: inherit;
+            font-weight: inherit;
+            font-size: 1rem;
+            padding: .5rem;
+            margin: none;
+
+            @include themify(){
+                color: themed("TextAlternativeColor");
+            }    
+
+            &:hover {
+                @include themify(){
+                    color: themed("TextPrimaryColor");
+                }         
+            }
+        }
+    }
+
+    .display-file--info {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 1rem 0;    
+
+        .display-file__tags {
+            text-align: left;
+        }
+
+        .display-file__updated-time {
+            text-align: right;
+        }
+    }
+
+    .file-viewer {
+        width: 100%;
+        height: auto;
+    }
+}
+

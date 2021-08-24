@@ -1,0 +1,51 @@
+.alert-box {
+    position: fixed;
+    width: 80%;
+    max-width: 800px;
+    min-width: 300px;
+    z-index: 2;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border-radius: $BorderRadius;
+
+    @include flexbox($justify: "center", $align: "center");
+
+    .alert__inner {
+        width: 100%;
+        height: 100%;
+        padding: 20px 40px;
+        position: relative;
+
+        @include flexbox($justify: "center", $align: "center");
+
+        p {
+            width: 100%;
+            text-align: center;
+        }
+
+        button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &--color- {
+        &danger {
+            @include themify() {
+                background-color: themed("AlertDangerBackgroundColor");
+                color: themed("PrimaryTextColor");
+            }; 
+        }
+
+        &success {
+            @include themify() {
+                background-color: themed("AlertSuccessBackgroundColor");
+                color: themed("PrimaryTextColor");
+            };     
+        }
+    }
+}

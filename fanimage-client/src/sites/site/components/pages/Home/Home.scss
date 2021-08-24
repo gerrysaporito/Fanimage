@@ -1,0 +1,24 @@
+
+.home {
+    width: 100%;
+    position: relative;
+    flex: 1 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: calc(#{$GridGap} * 2);
+
+    .list--headers {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: $GridGap;  
+        text-align: center;  
+
+        .list--headers-title {
+            font-size: 3rem;
+        }
+    
+        .list--headers-sub-title {
+    
+        }    
+    }
+}

@@ -1,0 +1,32 @@
+.float {
+    @include float();
+}
+
+.asterisk {
+    color: red;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.emoji-raised {
+    display: inline-block;
+    transform: translateY(-3px);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    button {
+        padding: 0;
+    }
+}
