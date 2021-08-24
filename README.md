@@ -1,4 +1,4 @@
-# Fanimage Image Repository -- [fanimage.net](http://fanimage.net) (Currently down due to AWS costs)
+# Fanimage Image Repository
 
 ## Introduction 🎩
 
