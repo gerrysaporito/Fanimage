@@ -1,4 +1,4 @@
-# Fanimage Image Repository
+# [Fanimage](http://fanimage.net/flying-nimbus) Image Repository
 
 ## Introduction 🎩
 
