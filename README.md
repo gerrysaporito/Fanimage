@@ -85,6 +85,6 @@ Another shortcoming is the authentication middleware. Authentication is mostly h
 
 To fix this, custom middleware should be added to the endpoints to ensure proper authentication. The only real validation right now is ensuring a user is authenticated. Validating a user owns posts before updating or deleting is a big security flaw that was acknowledged but not implemented due to the scope of this project.
 
-### Notes
+### Notes 🖍
 
 This is by no means an exhaustive list but only a few of the more critical points.
