@@ -16,15 +16,15 @@ This app was originally created for the shopify image repository api backend cha
 
 I chose to use my preferred stack (PERN) when planning this project to save time. Although I was already proficient with the technologies, I took this as an opportunity to express my creativity. I enjoyed creating custom themes like the ones seen below:
 
-#### Dark
+#### Dark Theme
 
 ![alt text](./assets/theme-dark.png 'Dark Theme')
 
-#### Gray
+#### Grayscale Theme
 
 ![alt text](./assets/theme-gray.png 'Gray Theme')
 
-#### Retro
+#### Retro Theme
 
 ![alt text](./assets/theme-retro.png 'Retro Theme')
 
@@ -56,25 +56,31 @@ This app has the following functionalities:
 - Add a picture to the repository
 - View a single or all images from the repository
 - Update & delete images you've uploaded
-- Tag images based on certain keywords for easier searching
+- Tag images by unique keywords
 - Change color theme
 
 ## Roadmap 🗺
 
-To date, the current site has the ability to add, remove, and view images (if user is authenticated). Tags have also been added to each image to allow searching in future versions. Buying and selling images is not in the roadmap as of now due to the possible legal complications.
+As of right now, the core functionality which qualifies this as an MVP has been implemented and tested in real time.
+
+Moving forward, integration tests will be implemented to ensure that all endpoints are functioning as expected. Also, advanced searches through common characteristics would also be incredibly useful to let users search by tags, key words, image sizes, types, and more creating a more seamless experience.
+
+Another feature that was considered was the possibility of buying and selling images by leveraging Non-Fungible Tokens (NFT) and blockchain. Doing so required an incredible upfront time and financial investment along with more knowledge and a community to support the development, which was way beyond the scope of the original project.
+
+Lastly although not a feature, legal paperwork (terms of use agreements & privacy policy) would be great to have to cover any liabilities on the individual user and and Fanimage & related entities.This is clearly beyond the scope of the project so it has not been pursued (nor do I think it ever will).
 
 ## Edge Cases ⚠️
 
-Although this app is pretty robust (validated through tests and strict entity versioning requirements), there are still a few corners which I cut to make it work.
+This app was created without much thought for longetivity and robustness as the main goal was pure functionality. That being said, there are a lot of edge cases to cover (aside from what would be covered by integration tests as mentioned in the roadmap).
 
-### Unsent Messages 🚩
+### Variable Image Card Sizes 🚩
 
-For one, there is a case where a failed message may not be sent. If an entity is versioned but crashes immediately after, the message will not be sent to the messaging service to broadcast to the other listeners in the other services. This creates a data integrity issue, causing the databases to have inconsistent data. All broadcasted messages related to that entity moving forward will fail because of the differences in the entity's version.
+For one, the UI is still clunky. Image cards contain variable amounts of whitespace and change depending on the largeset card on the row. The inconsistency in sizes is really hard on the eyes and makes the platform feel buggier than it really is.
 
-To help with this, messages could be saved to the database together with the entity through a database transaction and background service worker can constantly query the message table and send out unsent messages. This ensures that all unsent messages will send regardless of server state.
+To help with this, a masonry layout for the images (similar to [pinterest](https://pinterest.com)) would better fit the nature of these posts.
 
-### Incompatible Database Entity Version Schemas 🚩
+### Lacking Middleware 🚩
 
-Another shortcoming is the versioning requirement. Because all services run on MongoDB, a npm module was used to handle automatic versioning. This is fine until a service decides to use a different database (ex. PostgreSQL) and change the versioning schema. Because it is not the MongoDB version attribute, the version will never update and it will forever fail. There is no way to update the versioning schema from numbers to, for example, UUIDs.
+Another shortcoming is the authentication middleware. Currently a user is only able to upload images if they are logged in but the validation occurs in the client, meaning the endpoints aren't fully protected.
 
-To fix this, a custom versioning hook for MongoDB schemas can be implemented to handle versioning to ensure that the versioning schema is completely accessible.
+To fix this, custom middleware should be added to the endpoints to ensure proper authentication. The only real validation right now is ensuring a user is authenticated. Ensuring a user owns posts before updating or deleting is a big security flaw that was acknowledged but not implemented due to the scope of this project.
