@@ -18,15 +18,15 @@ I chose to use my preferred stack (PERN) when planning this project to save time
 
 #### Dark
 
-![alt text](./assets/theme-dark 'Dark Theme')
+![alt text](./assets/theme-dark.png 'Dark Theme')
 
 #### Gray
 
-![alt text](./assets/theme-gray 'Gray Theme')
+![alt text](./assets/theme-gray.png 'Gray Theme')
 
 #### Retro
 
-![alt text](./assets/theme-retro 'Retro Theme')
+![alt text](./assets/theme-retro.png 'Retro Theme')
 
 ## Getting Started 🏁
 
