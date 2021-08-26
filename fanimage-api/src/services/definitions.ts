@@ -5,7 +5,7 @@ dotenv.config();
 
 export const ServerHostname =
   process.env.NODE_ENV === 'development'
-    ? `http://localhost:${PORT || 7000}`
+    ? `http://localhost:${PORT || 3000}`
     : 'https://fanimage-api.herokuapp.com';
 export const ClientHostname =
   process.env.NODE_ENV === 'development'
