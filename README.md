@@ -1,6 +1,6 @@
 # [Fanimage](http://fanimage.net/flying-nimbus) Image Repository
 
-## Introduction 🎩
+## Introduction 🎩 
 
 This is an image repository web app that allows users to post images online for all to see, similar to imagur. The goal was to create an client & api that allows users to interact with the image repository.
 
